@@ -1,0 +1,18 @@
+x = 22.6
+y = -4.7
+z = -8
+
+local player = game.Players.LocalPlayer.Name 
+local nameofplayer = game.Workspace:FindFirstChild(player)
+
+
+game.Workspace.CashStack.CanCollide = false
+while wait(.1) do
+for i,v in pairs(game.Workspace:GetChildren()) do 
+	if v.Name == "CashStack" then 
+		wait(.1)
+		v.CFrame = nameofplayer.HumanoidRootPart.CFrame
+		nameofplayer.HumanoidRootPart.CFrame = CFrame.new(x,y,z)
+	end
+end
+end

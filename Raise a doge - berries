@@ -1,0 +1,12 @@
+player = game.Players.LocalPlayer.Name
+local nameofplayer = game.Workspace:FindFirstChild(player)
+
+for i,v in pairs(game.Workspace:GetChildren()) do 
+	if v:IsA("Tool") then 
+		print(v.Name)
+	if v.Name == "DogeBerry" then 
+	move = v:FindFirstChild("Handle")
+	move.CFrame = nameofplayer.HumanoidRootPart.CFrame
+	end
+end
+end
