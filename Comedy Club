@@ -1,0 +1,9 @@
+while wait(5) do
+local Lol = "rbxassetid://155345632"
+local Lol2 = "4"
+local Event = game:GetService("ReplicatedStorage").RemoteEvents.ToServerEvents.EmojiChange
+Event:FireServer(Lol, Lol2)
+end
+
+
+--This will start generating points instantly, will display an admin emoji over your head whenever you do the vote. 

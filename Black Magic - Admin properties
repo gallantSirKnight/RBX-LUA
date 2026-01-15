@@ -1,0 +1,30 @@
+local player = game.Players.LocalPlayer
+local nameofplr = player.Name
+
+repeat
+    wait()
+until player.Character ~= nil
+local character = player.Character
+local Head = character:WaitForChild("Head")
+if player.Name == nameofplr then
+    player.Backpack.Lyzoreine.RemoteEvent:FireServer(Head)
+end
+game.Players.LocalPlayer.Chatted:Connect(function(msg)
+    if string.sub(msg, 1, 5) == "reset" then
+        player.Backpack.Lyzoreine.otherEvent:FireServer()
+    end
+    if player.Name == nameofplr then
+        if string.sub(msg, 1, 8) == "/e kick " then
+            player.Backpack.Lyzoreine.kicker:FireServer(string.sub(msg, 9, string.len(msg)))
+        end
+        if string.sub(msg, 1, 8) == "/e annc " then
+            game:GetService("ReplicatedStorage"):WaitForChild("Announce"):FireServer(string.sub(msg, 9, string.len(msg)))
+        end
+        if string.sub(msg, 1, 8) == "/e kill " then
+            player.Backpack.Lyzoreine.killn:FireServer(string.sub(msg, 9, string.len(msg)))
+        end
+        if string.sub(msg, 1, 8) == "/e rndm " then
+            player.Backpack.Lyzoreine.random:FireServer()
+        end
+    end
+end)
